@@ -1,59 +1,53 @@
 import PropTypes from 'prop-types';
-import {
-  ProfileContainer,
-  UserDescription,
-  UserImage,
-  UserName,
-  UserLocation,
-  UserTag,
-  Stats,
-  StatsItem,
-  StatsItemLabel,
-  StatsItemQuantity,
-} from './Profile.styled';
+import css from 'components/Profile/Profile.styled';
 
-export const Profile = ({
-  username,
-  tag,
-  location,
-  avatar,
-  stats: { followers, views, likes },
-}) => {
+const {
+  Container,
+  Description,
+  Image,
+  Name,
+  Location,
+  Tag,
+  Stats,
+  Item,
+  Label,
+  Quantity,
+} = css;
+
+const Profile = ({ username, tag, location, avatar, stats }) => {
+  const keys = Object.keys(stats);
+
   return (
-    <ProfileContainer>
-      <UserDescription>
-        <UserImage src={avatar} alt='User avatar' />
-        <UserName>{username}</UserName>
-        <UserTag>@{tag}</UserTag>
-        <UserLocation>{location}</UserLocation>
-      </UserDescription>
+    <Container>
+      <Description>
+        <Image src={avatar} alt='User avatar' />
+        <Name>{username}</Name>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
+      </Description>
 
       <Stats>
-        <StatsItem>
-          <StatsItemLabel>Followers</StatsItemLabel>
-          <StatsItemQuantity>{followers}</StatsItemQuantity>
-        </StatsItem>
-        <StatsItem>
-          <StatsItemLabel>Views</StatsItemLabel>
-          <StatsItemQuantity>{views}</StatsItemQuantity>
-        </StatsItem>
-        <StatsItem>
-          <StatsItemLabel>Likes</StatsItemLabel>
-          <StatsItemQuantity>{likes}</StatsItemQuantity>
-        </StatsItem>
+        {keys.map((key) => (
+          <Item key={key}>
+            <Label>{key}</Label>
+            <Quantity>{stats[key]}</Quantity>
+          </Item>
+        ))}
       </Stats>
-    </ProfileContainer>
+    </Container>
   );
 };
 
 Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  stats: PropTypes.exact({
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
   }),
+  tag: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
 };
+
+export default Profile;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ProfileContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@ export const ProfileContainer = styled.div`
   overflow: hidden;
 `;
 
-export const UserDescription = styled.div`
+const Description = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,27 +21,27 @@ export const UserDescription = styled.div`
   padding-bottom: 20px;
 `;
 
-export const UserImage = styled.img`
+const Image = styled.img`
   width: 200px;
   border-radius: 50%;
   border: 3px solid black;
 `;
 
-export const UserName = styled.p`
+const Name = styled.p`
   font-weight: 700;
   font-size: 24px;
   text-align: center;
 `;
 
-export const UserLocation = styled.p`
+const Location = styled.p`
   text-align: center;
 `;
 
-export const UserTag = styled.p`
+const Tag = styled.p`
   text-align: center;
 `;
 
-export const Stats = styled.ul`
+const Stats = styled.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -49,7 +49,7 @@ export const Stats = styled.ul`
   border-top: 1px solid black;
 `;
 
-export const StatsItem = styled.li`
+const Item = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,11 +62,26 @@ export const StatsItem = styled.li`
   }
 `;
 
-export const StatsItemLabel = styled.span`
+const Label = styled.span`
   font-size: 12px;
 `;
 
-export const StatsItemQuantity = styled.span`
+const Quantity = styled.span`
   font-weight: 700;
   font-size: 20px;
 `;
+
+const css = {
+  Container,
+  Description,
+  Image,
+  Name,
+  Location,
+  Tag,
+  Stats,
+  Item,
+  Label,
+  Quantity,
+};
+
+export default css;
