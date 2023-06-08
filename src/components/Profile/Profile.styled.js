@@ -54,7 +54,7 @@ const Item = styled.li`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-basis: calc((100% -0px) / 3);
+  flex-basis: calc((100% - 0px) / 3);
   background-color: lightgray;
   padding: 10px;
   &:not(:last-child) {

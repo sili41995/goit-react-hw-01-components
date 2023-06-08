@@ -24,7 +24,7 @@ const Item = styled.li`
   flex-direction: column;
   gap: 5px;
   padding: 10px;
-  flex-basis: calc((100%-0px) / 5);
+  flex-basis: calc((100% - 0px) / 5);
   background-color: ${getRandomHexColor};
 `;
 
