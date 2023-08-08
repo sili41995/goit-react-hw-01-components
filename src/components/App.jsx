@@ -1,9 +1,11 @@
 import Profile from 'components/Profile';
 import Statistics from 'components/Statistics';
 import FriendList from 'components/FriendList';
+import TransactionHistory from 'components/TransactionHistory';
 import user from 'user';
 import data from 'data';
 import friends from 'friends';
+import transactions from 'transactions';
 
 const { avatar, location, stats, tag, username } = user;
 
@@ -19,6 +21,7 @@ function App() {
       />
       <Statistics stats={data} />
       <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />;
     </>
   );
 }
