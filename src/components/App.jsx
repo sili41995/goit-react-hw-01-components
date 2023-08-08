@@ -1,7 +1,9 @@
 import Profile from 'components/Profile';
 import Statistics from 'components/Statistics';
+import FriendList from 'components/FriendList';
 import user from 'user';
 import data from 'data';
+import friends from 'friends';
 
 const { avatar, location, stats, tag, username } = user;
 
@@ -16,6 +18,7 @@ function App() {
         stats={stats}
       />
       <Statistics stats={data} />
+      <FriendList friends={friends} />
     </>
   );
 }
