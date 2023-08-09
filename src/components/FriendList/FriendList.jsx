@@ -1,18 +1,26 @@
+import PropTypes from 'prop-types';
 import FriendListItem from 'components/FriendListItem';
+import { List } from './FriendList.styled';
 
 const FriendList = ({ friends }) => {
   return (
-    <ul class='friend-list'>
+    <List>
       {friends.map(({ id, avatar, name, isOnline }) => (
         <FriendListItem
-          id={id}
+          key={id}
           avatar={avatar}
           name={name}
           isOnline={isOnline}
         />
       ))}
-    </ul>
+    </List>
   );
+};
+
+FriendList.propTypse = {
+  friends: PropTypes.shape({
+    id: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 export default FriendList;

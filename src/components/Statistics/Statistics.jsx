@@ -1,20 +1,32 @@
+import PropTypes from 'prop-types';
+import { Section, List, Item, Percentage, Title } from './Statistics.styled';
+
 const Statistics = ({ stats, title }) => {
-  console.log(stats);
-
   return (
-    <section class='statistics'>
-      {title && <h2 class='title'>Upload stats</h2>}
+    <Section>
+      {title && <Title>Upload stats</Title>}
 
-      <ul class='stat-list'>
+      <List>
         {stats.map(({ id, label, percentage }) => (
-          <li key={id} class='item'>
-            <span class='label'>{label}</span>
-            <span class='percentage'>{percentage}%</span>
-          </li>
+          <Item key={id}>
+            <span>{label}</span>
+            <Percentage>{percentage}%</Percentage>
+          </Item>
         ))}
-      </ul>
-    </section>
+      </List>
+    </Section>
   );
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string,
 };
 
 export default Statistics;
